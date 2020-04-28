@@ -1,7 +1,9 @@
 Memoist
 =============
 
-[![Build Status](https://travis-ci.org/matthewrudy/memoist.svg?branch=master)](https://travis-ci.org/matthewrudy/memoist)
+## This version of the memoist gem supports ruby 2.7 version and later
+
+To use it for older versions please go to original repo https://github.com/matthewrudy/memoist
 
 Memoist is an extraction of ActiveSupport::Memoizable.
 
@@ -79,7 +81,7 @@ class Person
 end
 ```
 
-When a sub-class overrides one of its parent's methods and you need to memoize both. 
+When a sub-class overrides one of its parent's methods and you need to memoize both.
 Then you can use the `:identifier` parameter in order to help _Memoist_ distinguish between the two.
 
 ```ruby

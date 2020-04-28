@@ -203,14 +203,14 @@ module Memoist
           # end
 
           module_eval <<-EOS, __FILE__, __LINE__ + 1
-            def #{method_name}(*args)
+            def #{method_name}(**args)
               reload = Memoist.extract_reload!(method(#{unmemoized_method.inspect}), args)
 
               skip_cache = reload || !(instance_variable_defined?(#{memoized_ivar.inspect}) && #{memoized_ivar} && #{memoized_ivar}.has_key?(args))
               set_cache = skip_cache && !frozen?
 
               if skip_cache
-                value = #{unmemoized_method}(*args)
+                value = #{unmemoized_method}(**args)
               else
                 value = #{memoized_ivar}[args]
               end
